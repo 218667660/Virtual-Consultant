@@ -31,4 +31,15 @@ jobs:
           username: ${{ secrets.SERVER_USERNAME }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           source: "README.md"
-          target: "/var/www/projects/218667660"
+          target: "/var/www/projects/218667660
+
+      - name: Update Trello card
+        run: |
+          # Your Trello API call here to update the corresponding card
+          # For example, you can use curl to make a PUT request to Trello API
+          # Make sure to replace placeholders with actual values
+          curl --request PUT \
+               --url 'https://api.trello.com/1/cards/${{ secrets.65f1a54754a403597b232ebc}}' \
+               --header 'Authorization: Bearer ${{ secrets.ATATT3xFfGF0SQYwTrbqWM-30po9Rp6TrvmULRNZyoWdCoH3bbvAC9qoAHv1ZB-xFL0hp-qnJuN1_BnMLKznpMV5OAwsKNpKqsIHSv6swd2kteIce-A1OySh3nBO7c1uoKKY1QBwTchA75cKRy1uhTb9GqWtg17Rh2ha20a6AplfowNogy3rk1w=FDEDC92C}}' \
+               --header 'Content-Type: application/json' \
+               --data '{"desc": "Updated README.md file"}'
